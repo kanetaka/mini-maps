@@ -26,8 +26,7 @@ const sassRender = (content, id) => new Promise((resolve, reject) => {
 	resolve({code: result.css.toString()});
 });
 
-export default [
-{
+export default [{
 	input: 'src/loader/index.js',
 	output: {
 		name: 'MiniTokyo3DLoader',
@@ -41,8 +40,7 @@ export default [
 		resolve(),
 		commonjs()
 	]
-},
-{
+}, {
 	input: 'src/index.js',
 	output: {
 		name: 'MiniTokyo3D',
@@ -71,8 +69,7 @@ export default [
 		replace(extraReplacement),
 		image()
 	]
-}/*,
-{
+}, {
 	input: 'src/index.js',
 	output: {
 		name: 'MiniTokyo3D',
@@ -111,4 +108,4 @@ export default [
 			sourceMap: true
 		})
 	]
-}*/];
+}];

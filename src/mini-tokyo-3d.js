@@ -108,6 +108,7 @@ export default class extends mapboxgl.Evented {
         insertTags(me.container);
 
         loader.loadStaticData(me.dataUrl, me.lang, me.clock).then(data => {
+            console.log("@@@@@@@@@\n", data);
             Object.assign(me, data);
             me.initialize();
         }).catch(error => {
