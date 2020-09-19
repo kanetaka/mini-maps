@@ -78,6 +78,15 @@ export default class extends Evented {
         me._update();
     }
 
+    setClock(date) {
+      const me = this;
+
+      me._clock.setDate(date);
+      me._onChange();
+      me._editing = false;
+      me._update();
+    }
+
     _onChange() {
         const me = this;
 

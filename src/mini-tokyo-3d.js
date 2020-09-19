@@ -108,9 +108,10 @@ export default class extends mapboxgl.Evented {
         insertTags(me.container);
 
         loader.loadStaticData(me.dataUrl, me.lang, me.clock).then(data => {
-            console.log("@@@@@@@@@\n", data);
             Object.assign(me, data);
             me.initialize();
+
+
         }).catch(error => {
             showErrorMessage(me.container);
             throw error;
@@ -891,6 +892,11 @@ export default class extends mapboxgl.Evented {
                 me.clockCtrl = new ClockControl({lang: me.lang, dict: me.dict, clock: me.clock});
                 me.clockCtrl.on('change', me.onClockChange.bind(me));
                 map.addControl(me.clockCtrl);
+
+                // 2020/08/21にする処理
+                const date = new Date("2020-08-21T08:00:00+09:00");
+                console.log("@@@", date);
+                me.clockCtrl.setClock(date);
             }
 
             const popup = me.popup = new mapboxgl.Popup({
